@@ -50,18 +50,6 @@
             ReferencedContainer = "container:Netflix Clone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "YOUTUBE_DATA_API_KEY"
-            value = "AIzaSyArBxINp3fAz-oRMShVv_ONPucUBfSp5ic"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "API_KEY"
-            value = "199238742a15bb417c3b2cb127837558"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

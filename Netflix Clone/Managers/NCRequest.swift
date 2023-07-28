@@ -9,9 +9,8 @@ import Foundation
 
 final class NCRequest {
     struct Constants {
-        static let API_KEY = ProcessInfo.processInfo.environment["API_KEY"]
-        static let ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTkyMzg3NDJhMTViYjQxN2MzYjJjYjEyNzgzNzU1OCIsInN1YiI6IjVmMzI1MDMwY2RmMmU2MDAzNzI0NTk0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oWmpeNGpvJIcgPe4kbb4hxePhb7UWa3g86j1P2DMxZ8"
-        static let YOUTUBE_DATA_API_KEY = ProcessInfo.processInfo.environment["YOUTUBE_DATA_API_KEY"]
+        static let API_KEY = Bundle.main.infoDictionary?["API_KEY"] as? String
+        static let YOUTUBE_DATA_API_KEY = Bundle.main.infoDictionary?["YOUTUBE_DATA_API_KEY"] as? String
         static let baseURL = "https://api.themoviedb.org/3"
         static let youtubeAPIBaseURL = "https://youtube.googleapis.com/youtube/v3"
     }

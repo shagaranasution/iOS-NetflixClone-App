@@ -52,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		FF26A8422A67F67F0096A768 /* NCSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchView.swift; sourceTree = "<group>"; };
 		FF26A8452A67F7340096A768 /* NCSearchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchViewViewModel.swift; sourceTree = "<group>"; };
 		FF26A8472A67F87B0096A768 /* NCSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 				FFA872862A5D871300A76935 /* Controllers */,
 				FFA8727D2A5D858600A76935 /* Info.plist */,
 				FF907E4D2A70EDD30004C747 /* NetflixCloneModel.xcdatamodeld */,
+				FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */,
 			);
 			path = "Netflix Clone";
 			sourceTree = "<group>";
@@ -483,6 +485,7 @@
 /* Begin XCBuildConfiguration section */
 		FFA8727E2A5D858600A76935 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -543,6 +546,7 @@
 		};
 		FFA8727F2A5D858600A76935 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -597,6 +601,7 @@
 		};
 		FFA872812A5D858600A76935 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -624,6 +629,7 @@
 		};
 		FFA872822A5D858600A76935 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

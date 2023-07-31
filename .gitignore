@@ -1,6 +1,6 @@
 ## Project-wide
 .DS_Store
-/Netflix\ Clone/AppConfig.xcconfig
+*.private.xcconfig
 
 ## User settings
 xcuserdata/

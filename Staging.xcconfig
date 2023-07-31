@@ -1,0 +1,19 @@
+#include "Base.xcconfig"
+#include "Staging.private.xcconfig"
+
+API_KEY = $(API_BASE_KEY)
+YOUTUBE_DATA_API_KEY = $(YOUTUBE_DATA_API_BASE_KEY)
+
+ENV_NAME = staging
+
+// Overriding (do NOT change key name)
+// app name
+PRODUCT_NAME = $(APP_NAME) $(ENV_NAME)
+// bundle id
+PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER).$(ENV_NAME)
+// app icon
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_NonProduction
+// app version
+MARKETING_VERSION = 1.0.0
+// build number
+CURRENT_PROJECT_VERSION = 1

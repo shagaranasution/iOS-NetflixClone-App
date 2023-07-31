@@ -8,9 +8,9 @@
 import UIKit
 
 final class NCHomeViewController: UIViewController {
-    
-    private let hearoHeaderViewViewModel = NCHeroHeaderViewViewModel()
-    private let primaryView: NCHomeView = NCHomeView()
+
+    private let primaryView = NCHomeView()
+    private let homeViewModel = NCHomeViewViewModel()
     
     // MARK: UIViewController lifecycle
     
@@ -20,10 +20,12 @@ final class NCHomeViewController: UIViewController {
         configureNavbar()
         view.addSubview(primaryView)
         primaryView.delegate = self
-        hearoHeaderViewViewModel.fetchTrendingMovies()
-        hearoHeaderViewViewModel.registerDidFetchPosterPathHandler { [weak self] posterPath in
-            self?.primaryView.configureHeaderView(withPosterPath: posterPath)
+        homeViewModel.fetchTrendingMovies()
+        homeViewModel.registerDidFetchPosterPathHandler { [weak self] title in
+            self?.primaryView.configureHeaderView(with: NCHeroHeaderViewViewModel(model: title))
         }
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,13 +76,39 @@ final class NCHomeViewController: UIViewController {
     
 }
 
-// MARK: - Extension NCHomeViewProtocol
+// MARK: - Extension NCHomeViewDelegate
 
-extension NCHomeViewController: NCHomeViewProtocol {
+extension NCHomeViewController: NCHomeViewDelegate {
+    
+    func ncHomeView(_ view: NCHomeView, didTapPlay title: NCTitle) {
+        let vc = NCTitlePreviewViewController(title: title)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func ncHomeView(_ view: NCHomeView, didTapTitle title: NCTitle) {
         let vc = NCTitlePreviewViewController(title: title)
+        vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func ncHomeView(_ view: NCHomeView, didTapDownloadTitle result: Result<Void, Error>) {
+        let message: String
+        switch result {
+        case .success:
+            message = "Download success."
+        case .failure:
+            message = "Download fail."
+        }
+        
+        let alertController = UIAlertController(
+            title: "Download",
+            message: message,
+            preferredStyle: .alert
+        )
+        let titleAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(titleAction)
+        
+        present(alertController, animated: true)
     }
     
 }

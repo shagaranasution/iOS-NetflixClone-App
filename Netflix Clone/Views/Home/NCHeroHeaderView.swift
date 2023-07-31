@@ -7,7 +7,26 @@
 
 import UIKit
 
+protocol NCHeroHeaderViewDelegate: AnyObject {
+    func ncHeroHeaderView(_ view: NCHeroHeaderView, didTapPlay: NCTitle)
+    
+    func ncHeroHeaderView(_ view: NCHeroHeaderView, didTapDownloadTitle result: Result<Void, Error>)
+}
+
 final class NCHeroHeaderView: UIView {
+    
+    public weak var delegate: NCHeroHeaderViewDelegate?
+    
+    private var viewModel: NCHeroHeaderViewViewModel? {
+        didSet {
+            guard let viewModel else {
+                return
+            }
+            
+            viewModel.delegate = self
+            setupPosterPath(with: viewModel)
+        }
+    }
     
     private let headerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -65,13 +84,14 @@ final class NCHeroHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addSubview(headerImageView)
         layer.addSublayer(headerGradientLayer)
         stackView.addArrangedSubview(playButton)
         stackView.addArrangedSubview(downloadButton)
         addSubview(stackView)
         addConstraints()
+        playButton.addTarget(self, action: #selector(playButtonTap), for: .touchUpInside)
+        downloadButton.addTarget(self, action: #selector(downloadButtonTap), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -92,13 +112,40 @@ final class NCHeroHeaderView: UIView {
         ])
     }
     
-    public func configure(posterPath: String) {
-        guard let url = URL(string: posterPath) else {
+    @objc
+    private func playButtonTap() {
+        guard let viewModel else {
+            return
+        }
+        delegate?.ncHeroHeaderView(self, didTapPlay: viewModel.title)
+    }
+    
+    @objc
+    private func downloadButtonTap() {
+        viewModel?.downloadTitle()
+    }
+    
+    private func setupPosterPath(with viewModel: NCHeroHeaderViewViewModel) {
+        guard let url = viewModel.posterUrl else {
             return
         }
         DispatchQueue.main.async { [weak self] in
             self?.headerImageView.sd_setImage(with: url)
         }
+    }
+    
+    public func configure(with viewModel: NCHeroHeaderViewViewModel) {
+        self.viewModel = viewModel
+    }
+    
+}
+
+// MARK: - Extension View Model Delegate
+
+extension NCHeroHeaderView: NCHeroHeaderViewViewModelDelegate {
+    
+    func didDownloadTitle(result: Result<Void, Error>) {
+        delegate?.ncHeroHeaderView(self, didTapDownloadTitle: result)
     }
     
 }

@@ -55,6 +55,7 @@ extension NCDownloadsViewController: NCDownloadsViewDelegate {
     
     func ncDownloadsView(_ view: NCDownloadsView, didSelect title: NCTitle) {
         let vc = NCTitlePreviewViewController(title: title)
+        vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     

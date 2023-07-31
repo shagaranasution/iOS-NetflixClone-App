@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NCCollectionViewTableViewCellProtocol: AnyObject {
+protocol NCCollectionViewTableViewCellDelegate: AnyObject {
     func ncCollectionViewTableViewCell(_ cell: UITableViewCell, didTapTitle title: NCTitle)
 }
 
@@ -15,7 +15,7 @@ final class NCCollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = "NCCollectionViewTableViewCell"
     
-    weak var delegate: NCCollectionViewTableViewCellProtocol?
+    weak var delegate: NCCollectionViewTableViewCellDelegate?
     
     private var viewModel: NCCollectionViewTableViewCellViewModel? {
         didSet {

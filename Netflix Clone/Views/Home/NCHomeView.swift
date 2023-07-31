@@ -7,13 +7,17 @@
 
 import UIKit
 
-protocol NCHomeViewProtocol: AnyObject {
+protocol NCHomeViewDelegate: AnyObject {
     func ncHomeView(_ view: NCHomeView, didTapTitle title: NCTitle)
+    
+    func ncHomeView(_ view: NCHomeView, didTapPlay title: NCTitle)
+    
+    func ncHomeView(_ view: NCHomeView, didTapDownloadTitle result: Result<Void, Error>)
 }
 
 final class NCHomeView: UIView {
     
-    weak var delegate: NCHomeViewProtocol?
+    weak var delegate: NCHomeViewDelegate?
     
     private var viewModels = NCHomeViewViewModel()
     
@@ -37,6 +41,7 @@ final class NCHomeView: UIView {
         backgroundColor = .systemBackground
         
         addSubview(homeFeedTable)
+        homeHeaderView.delegate = self
         homeFeedTable.dataSource = self
         homeFeedTable.delegate = self
     }
@@ -56,11 +61,13 @@ final class NCHomeView: UIView {
         homeFeedTable.tableHeaderView = homeHeaderView
     }
     
-    public func configureHeaderView(withPosterPath posterPath: String) {
-        homeHeaderView.configure(posterPath: posterPath)
+    public func configureHeaderView(with viewModel: NCHeroHeaderViewViewModel) {
+        homeHeaderView.configure(with: viewModel)
     }
     
 }
+
+// MARK: - Extension TableView Delegate
 
 extension NCHomeView: UITableViewDelegate, UITableViewDataSource {
     
@@ -117,7 +124,23 @@ extension NCHomeView: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension NCHomeView: NCCollectionViewTableViewCellProtocol {
+// MARK: - Extension NCHeroHeaderView Delegate
+
+extension NCHomeView: NCHeroHeaderViewDelegate {
+    
+    func ncHeroHeaderView(_ view: NCHeroHeaderView, didTapPlay title: NCTitle) {
+        delegate?.ncHomeView(self, didTapPlay: title)
+    }
+    
+    func ncHeroHeaderView(_ view: NCHeroHeaderView, didTapDownloadTitle result: Result<Void, Error>) {
+        delegate?.ncHomeView(self, didTapDownloadTitle: result)
+    }
+    
+}
+
+// MARK: - Extension NCCollectionViewTableViewCell Delegate
+
+extension NCHomeView: NCCollectionViewTableViewCellDelegate {
     
     func ncCollectionViewTableViewCell(_ cell: UITableViewCell, didTapTitle title: NCTitle) {
         delegate?.ncHomeView(self, didTapTitle: title)

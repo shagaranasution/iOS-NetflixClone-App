@@ -73,7 +73,7 @@ final class NCTitlePreviewViewController: UIViewController {
 
 extension NCTitlePreviewViewController: NCTitlePreviewViewDelegate {
     
-    func ncTitlePreviewView(_ view: NCTitlePreviewView, didDownloadTitleResult result: (Result<Void, Error>)) {
+    func ncTitlePreviewView(_ view: NCTitlePreviewView, didDownloadTitle result: (Result<Void, Error>)) {
         let message: String
         switch result {
         case .success:

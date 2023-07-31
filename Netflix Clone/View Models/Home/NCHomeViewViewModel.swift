@@ -34,6 +34,30 @@ final class NCHomeViewViewModel {
     
     public let sections: [Section] = Section.allCases
     
+    private var didFetchTrendingTitle: ((NCTitle) -> Void)?
+    
     init() {}
+    
+    public func fetchTrendingMovies() {
+        NCService.shared.execute(
+            .listTrendingMoviesRequest,
+            expecting: NCTGetListTitlesResponse.self) { [weak self] result in
+                switch result {
+                case .success(let model):
+                    guard let title = model.results.randomElement() else {
+                        return
+                    }
+                    self?.didFetchTrendingTitle?(title)
+                case .failure(let error):
+                    print(String(describing: error))
+                }
+            }
+    }
+    
+    public func registerDidFetchPosterPathHandler(
+        _ block: @escaping (NCTitle) -> Void
+    ) {
+        didFetchTrendingTitle = block
+    }
     
 }

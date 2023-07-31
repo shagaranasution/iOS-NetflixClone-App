@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 protocol NCTitlePreviewViewDelegate: AnyObject {
-    func ncTitlePreviewView(_ view: NCTitlePreviewView, didDownloadTitleResult result: (Result<Void, Error>))
+    func ncTitlePreviewView(_ view: NCTitlePreviewView, didDownloadTitle result: (Result<Void, Error>))
 }
 
 final class NCTitlePreviewView: UIView {
@@ -98,7 +98,7 @@ final class NCTitlePreviewView: UIView {
             guard let strongSelf = self else {
                 return
             }
-            strongSelf.delegate?.ncTitlePreviewView(strongSelf, didDownloadTitleResult: result)
+            strongSelf.delegate?.ncTitlePreviewView(strongSelf, didDownloadTitle: result)
         })
     }
     

@@ -7,31 +7,33 @@
 
 import Foundation
 
+protocol NCHeroHeaderViewViewModelDelegate: AnyObject {
+    func didDownloadTitle(result: Result<Void, Error>)
+}
+
 final class NCHeroHeaderViewViewModel {
     
-    private var didFetchPosterPathHandler: ((String) -> Void)?
-
-    init() {}
+    public weak var delegate: NCHeroHeaderViewViewModelDelegate?
     
-    public func fetchTrendingMovies() {
-        NCService.shared.execute(
-            .listTrendingMoviesRequest,
-            expecting: NCTGetListTitlesResponse.self) { [weak self] result in
-                switch result {
-                case .success(let model):
-                    let movie = model.results.randomElement()
-                    let posterPath = "https://image.tmdb.org/t/p/w500\(movie?.posterPath ?? "")"
-                    self?.didFetchPosterPathHandler?(posterPath)
-                case .failure(let error):
-                    print(String(describing: error))
-                }
+    private let model: NCTitle
+    
+    init(model: NCTitle) {
+        self.model = model
+    }
+    
+    public var title: NCTitle {
+        return model
+    }
+    
+    public var posterUrl: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(title.posterPath ?? "")")
+    }
+    
+    public func downloadTitle() {
+        NCDataPersistenceManager.shared.downloadTitle(
+            model: model) { [weak self] result in
+                self?.delegate?.didDownloadTitle(result: result)
             }
     }
-    
-    public func registerDidFetchPosterPathHandler(
-        _ block: @escaping (String) -> Void
-    ) {
-        didFetchPosterPathHandler = block
-    }
-    
+
 }

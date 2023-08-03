@@ -41,7 +41,7 @@
 		FFD143D22A63DD2A005F3D8B /* NCTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D12A63DD2A005F3D8B /* NCTitle.swift */; };
 		FFD143D62A63E29F005F3D8B /* NCTGetListTitlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D52A63E29F005F3D8B /* NCTGetListTitlesResponse.swift */; };
 		FFD143D82A640FEF005F3D8B /* NCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D72A640FEF005F3D8B /* NCRequest.swift */; };
-		FFD143DA2A641597005F3D8B /* NCEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D92A641597005F3D8B /* NCEndpoint.swift */; };
+		FFD143DA2A641597005F3D8B /* NCEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D92A641597005F3D8B /* NCEndpoints.swift */; };
 		FFF092E02A64F96C000CE184 /* NCHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF092DF2A64F96C000CE184 /* NCHomeView.swift */; };
 		FFF092E22A64FDC5000CE184 /* NCHomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF092E12A64FDC5000CE184 /* NCHomeViewViewModel.swift */; };
 		FFF092E42A6509EB000CE184 /* NCCollectionViewTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF092E32A6509EB000CE184 /* NCCollectionViewTableViewCellViewModel.swift */; };
@@ -89,7 +89,7 @@
 		FFD143D12A63DD2A005F3D8B /* NCTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTitle.swift; sourceTree = "<group>"; };
 		FFD143D52A63E29F005F3D8B /* NCTGetListTitlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTGetListTitlesResponse.swift; sourceTree = "<group>"; };
 		FFD143D72A640FEF005F3D8B /* NCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCRequest.swift; sourceTree = "<group>"; };
-		FFD143D92A641597005F3D8B /* NCEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCEndpoint.swift; sourceTree = "<group>"; };
+		FFD143D92A641597005F3D8B /* NCEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCEndpoints.swift; sourceTree = "<group>"; };
 		FFF092DF2A64F96C000CE184 /* NCHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCHomeView.swift; sourceTree = "<group>"; };
 		FFF092E12A64FDC5000CE184 /* NCHomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCHomeViewViewModel.swift; sourceTree = "<group>"; };
 		FFF092E32A6509EB000CE184 /* NCCollectionViewTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCCollectionViewTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			children = (
 				FFCAA0B62A60269500A182CE /* NCService.swift */,
 				FFD143D72A640FEF005F3D8B /* NCRequest.swift */,
-				FFD143D92A641597005F3D8B /* NCEndpoint.swift */,
+				FFD143D92A641597005F3D8B /* NCEndpoints.swift */,
 				FF907E502A70EFA10004C747 /* NCDataPersistenceManager.swift */,
 			);
 			path = Managers;
@@ -445,7 +445,7 @@
 				FFC713402A66888700675A41 /* NCTitleTableViewCell.swift in Sources */,
 				FFBAFC072A5E92B50039E1F6 /* NCHeroHeaderView.swift in Sources */,
 				FFD143D22A63DD2A005F3D8B /* NCTitle.swift in Sources */,
-				FFD143DA2A641597005F3D8B /* NCEndpoint.swift in Sources */,
+				FFD143DA2A641597005F3D8B /* NCEndpoints.swift in Sources */,
 				FFF092E42A6509EB000CE184 /* NCCollectionViewTableViewCellViewModel.swift in Sources */,
 				FF26A84E2A6936E40096A768 /* NCSearchResultsView.swift in Sources */,
 				FFF092E22A64FDC5000CE184 /* NCHomeViewViewModel.swift in Sources */,

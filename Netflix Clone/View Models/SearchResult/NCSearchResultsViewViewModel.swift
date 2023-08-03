@@ -42,10 +42,8 @@ final class NCSearchResultsViewViewModel: NSObject {
         let queryParamaters = [
             URLQueryItem(name: "query",
                          value: query),
-            URLQueryItem(name: "api_key",
-                         value: NCRequest.Constants.API_KEY),
         ]
-        let request = NCRequest(endpoint: .searchMovies, queryParamaters: queryParamaters)
+        let request = NCRequest(endpoint: NCEndpoints.TheMovieDB.searchMovies, queryParamaters: queryParamaters)
         
         NCService.shared.execute(
             request,

@@ -22,11 +22,9 @@ final class NCTitlePreviewViewViewModel {
             return
         }
         let queryItems = [
-            URLQueryItem(name: "q", value: "\(titleName) trailer"),
-            URLQueryItem(name: "key", value: NCRequest.Constants.YOUTUBE_DATA_API_KEY),
+            URLQueryItem(name: "q", value: "\(titleName) trailer")
         ]
-        let endpointString = "\(NCRequest.Constants.youtubeAPIBaseURL)/search"
-        let request = NCRequest(endpoint: .otherEndpoint(endpointString), queryParamaters: queryItems)
+        let request = NCRequest(endpoint: NCEndpoints.YouTubeData.search, queryParamaters: queryItems)
         NCService.shared.execute(
             request,
             expecting: NCYoutubeSearchResponse.self) { [weak self] result in

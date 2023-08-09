@@ -33,6 +33,24 @@ extension UIImage {
     
 }
 
+extension UIImageView {
+    
+    func setImage(with url: URL?) {
+        guard let url = url else {
+            return
+        }
+        
+        Task {
+            guard let data = try? await NCImageLoader.shared.download(from: url) else {
+                return
+            }
+            let image = UIImage(data: data)
+            self.image = image
+        }
+    }
+    
+}
+
 extension UIView {
     
     func addSubviews(_ views: UIView...) {

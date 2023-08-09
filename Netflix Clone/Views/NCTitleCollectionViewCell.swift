@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 final class NCTitleCollectionViewCell: UICollectionViewCell {
     
@@ -45,7 +44,7 @@ final class NCTitleCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: NCTitleCollectionViewCellViewModel) {
-        posterImageView.sd_setImage(with: URL(string: viewModel.posterPath))
+        posterImageView.setImage(with: viewModel.posterUrl)
     }
     
 }

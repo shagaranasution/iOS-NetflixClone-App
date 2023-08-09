@@ -86,7 +86,7 @@ final class NCTitleTableViewCell: UITableViewCell {
     }
     
     public func configure(with viewModel: NCTitleTableViewCellViewModel) {
-        posterImageView.sd_setImage(with: URL(string: viewModel.posterPath))
+        posterImageView.setImage(with: viewModel.posterUrl)
         titleLabel.text = viewModel.titleString
     }
 

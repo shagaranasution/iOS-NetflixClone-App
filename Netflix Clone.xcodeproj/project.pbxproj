@@ -38,6 +38,7 @@
 		FFC713422A668C3500675A41 /* NCTitleTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC713412A668C3500675A41 /* NCTitleTableViewCellViewModel.swift */; };
 		FFCAA0B52A5FD01D00A182CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCAA0B42A5FD01D00A182CE /* Extensions.swift */; };
 		FFCAA0B72A60269500A182CE /* NCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCAA0B62A60269500A182CE /* NCService.swift */; };
+		FFCF4F022A8348C900FB160B /* NCImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCF4F012A8348C900FB160B /* NCImageLoader.swift */; };
 		FFD143D22A63DD2A005F3D8B /* NCTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D12A63DD2A005F3D8B /* NCTitle.swift */; };
 		FFD143D62A63E29F005F3D8B /* NCTGetListTitlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D52A63E29F005F3D8B /* NCTGetListTitlesResponse.swift */; };
 		FFD143D82A640FEF005F3D8B /* NCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD143D72A640FEF005F3D8B /* NCRequest.swift */; };
@@ -52,7 +53,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
 		FF26A8422A67F67F0096A768 /* NCSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchView.swift; sourceTree = "<group>"; };
 		FF26A8452A67F7340096A768 /* NCSearchViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchViewViewModel.swift; sourceTree = "<group>"; };
 		FF26A8472A67F87B0096A768 /* NCSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCSearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		FFC713412A668C3500675A41 /* NCTitleTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTitleTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		FFCAA0B42A5FD01D00A182CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FFCAA0B62A60269500A182CE /* NCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCService.swift; sourceTree = "<group>"; };
+		FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppConfig.xcconfig; sourceTree = "<group>"; };
+		FFCF4F012A8348C900FB160B /* NCImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCImageLoader.swift; sourceTree = "<group>"; };
 		FFD143D12A63DD2A005F3D8B /* NCTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTitle.swift; sourceTree = "<group>"; };
 		FFD143D52A63E29F005F3D8B /* NCTGetListTitlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCTGetListTitlesResponse.swift; sourceTree = "<group>"; };
 		FFD143D72A640FEF005F3D8B /* NCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCRequest.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 				FFA872862A5D871300A76935 /* Controllers */,
 				FFA8727D2A5D858600A76935 /* Info.plist */,
 				FF907E4D2A70EDD30004C747 /* NetflixCloneModel.xcdatamodeld */,
-				FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */,
+				FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */,
 			);
 			path = "Netflix Clone";
 			sourceTree = "<group>";
@@ -294,6 +296,7 @@
 				FFD143D72A640FEF005F3D8B /* NCRequest.swift */,
 				FFD143D92A641597005F3D8B /* NCEndpoints.swift */,
 				FF907E502A70EFA10004C747 /* NCDataPersistenceManager.swift */,
+				FFCF4F012A8348C900FB160B /* NCImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				FFF092E22A64FDC5000CE184 /* NCHomeViewViewModel.swift in Sources */,
 				FF26A8432A67F67F0096A768 /* NCSearchView.swift in Sources */,
 				FFD143D62A63E29F005F3D8B /* NCTGetListTitlesResponse.swift in Sources */,
+				FFCF4F022A8348C900FB160B /* NCImageLoader.swift in Sources */,
 				FFD143D82A640FEF005F3D8B /* NCRequest.swift in Sources */,
 				FF26A8462A67F7340096A768 /* NCSearchViewViewModel.swift in Sources */,
 				FFCAA0B52A5FD01D00A182CE /* Extensions.swift in Sources */,
@@ -485,7 +489,7 @@
 /* Begin XCBuildConfiguration section */
 		FFA8727E2A5D858600A76935 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
+			baseConfigurationReference = FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -546,7 +550,7 @@
 		};
 		FFA8727F2A5D858600A76935 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
+			baseConfigurationReference = FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -601,7 +605,7 @@
 		};
 		FFA872812A5D858600A76935 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
+			baseConfigurationReference = FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -629,7 +633,7 @@
 		};
 		FFA872822A5D858600A76935 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF0527D02A73C6D5004B2D83 /* AppConfig.xcconfig */;
+			baseConfigurationReference = FFCF4F002A83460D00FB160B /* AppConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

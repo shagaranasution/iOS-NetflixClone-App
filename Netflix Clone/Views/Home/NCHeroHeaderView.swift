@@ -130,7 +130,7 @@ final class NCHeroHeaderView: UIView {
             return
         }
         DispatchQueue.main.async { [weak self] in
-            self?.headerImageView.sd_setImage(with: url)
+            self?.headerImageView.setImage(with: url)
         }
     }
     

@@ -15,8 +15,9 @@ struct NCTitleTableViewCellViewModel {
         return title.originalTitle ?? title.originalName ?? ""
     }
     
-    public var posterPath: String {
-        return "https://image.tmdb.org/t/p/w500/\(title.posterPath ?? "")"
+    public var posterUrl: URL? {
+        let string = "https://image.tmdb.org/t/p/w500\(title.posterPath ?? "")"
+        return URL(string: string)
     }
     
 }

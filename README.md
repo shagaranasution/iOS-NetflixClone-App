@@ -5,8 +5,7 @@ Netflix Clone app is project I make for my learning purpose. The app is an outco
 * MVVM
 * Programmatically UI (UIKit)
 * [TheMovieDB API](https://developer.themoviedb.org/docs)
-* [Youtube Data V3 API](https://developers.google.com/youtube/v3)
-* [SDWebImage](https://github.com/SDWebImage/SDWebImage)
+* [Youtube Data API](https://developers.google.com/youtube/v3)
 
 # Preview
 ![Home Screen](./Screenshots/1_home.png)
